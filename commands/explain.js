@@ -10,7 +10,7 @@ const core = require('@hazo-development/hazo-core');
 module.exports = new Command({
 	name: "explain",
 	description: "Hello world.",
-	aliases: [],
+	aliases: ["hello world"],
 
 	async run(message, args, con, rows, client) {
 		try {
