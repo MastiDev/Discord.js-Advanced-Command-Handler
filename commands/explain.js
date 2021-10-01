@@ -16,7 +16,7 @@ module.exports = new Command({
 		try {
 			message.reply("Hello world!");
 		} catch (error) {
-			console.log(red(`[HAZO-COMMAND] In the command ${this.name} an error has occurred -> ${error}`))
+			console.log(red(`[COMMAND] In the command ${this.name} an error has occurred -> ${error}`))
 		}
 	}
 });
