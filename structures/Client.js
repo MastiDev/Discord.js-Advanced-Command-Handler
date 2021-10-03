@@ -30,7 +30,7 @@ class Client extends Discord.Client {
 				 * @type {Command}
 				 */
 				const command = require(`../Commands/${file}`);
-				console.log(greenBright(`[HAZO-COMMAND] ${command.name} loaded!`));
+				console.log(greenBright(`[COMMAND] ${command.name} loaded with aliases: ${command.aliases}`));
 				this.commands.set(command.name, command);
 				
 				if (command.aliases) {
@@ -47,7 +47,7 @@ class Client extends Discord.Client {
 				 * @type {Event}
 				 */
 				const event = require(`../Events/${file}`);
-				console.log(greenBright(`[HAZO-EVENT] ${event.event} loaded!`));
+				console.log(greenBright(`[EVENT] ${event.event} loaded!`));
 				this.on(event.event, event.run.bind(null, this));
 			});
 

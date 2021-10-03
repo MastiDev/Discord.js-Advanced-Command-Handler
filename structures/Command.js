@@ -8,7 +8,7 @@ const Discord = require("discord.js");
  * @param {string[]} rows
  * @param {Client} client
  */
-function RunFunction(message, args, con, rows, client) {}
+function RunFunction(message, args, con, serverstats, userstats, client) {}
 
 class Command {
 	/**

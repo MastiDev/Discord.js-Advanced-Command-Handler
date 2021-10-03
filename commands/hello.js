@@ -1,18 +1,17 @@
 const Command = require("../Structures/Command.js");
-const Discord = require("discord.js");
 const Event = require("../Structures/Event.js");
-const { version } = require('../package.json');
+const Discord = require("discord.js");
 const config = require("../Data/config.json");
 const { MessageSelectMenu, MessageActionRow, MessageButton } = require("discord.js");
 const { red, green, blue, yellow, cyan, greenBright, redBright, grey, yellowBright, cyanBright, black, blueBright } = require('chalk');
-const core = require('@hazo-development/hazo-core');
+const { version } = require('../package.json');
 
 module.exports = new Command({
-	name: "explain",
+	name: "hello",
 	description: "Hello world.",
-	aliases: ["hello world"],
+	aliases: ["hey", "hi"],
 
-	async run(message, args, con, rows, client) {
+	async run(message, args, client) {
 		try {
 			message.reply("Hello world!");
 		} catch (error) {
