@@ -1,9 +1,12 @@
 console.clear();
 
-const Discord = require("discord.js");
-const Client = require("./Structures/Client.js");
+const Client = require("./structures/client.js");
 const client = new Client();
+const config = require("./data/config.json");
 
-const config = require("./Data/config.json");
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  console.log("Node NOT Exiting...");
+});
 
 client.start(config.token);
