@@ -28,7 +28,7 @@ ENGINE=InnoDB
 ```
 2. Update your token and MySQL connection information in the config.
 3. Run the following command to install the package: `npm install`
-4. Rename teh `config.json.TEMPLATE` to `config.json`
+4. Rename the `config.json.TEMPLATE` to `config.json`
 5. Run the bot with the following command: `npm start` or `node .`
 ### Credits
 [I used his good code as a basis](https://github.com/Ferotiq/Discord.JS-13-Tutorial).
