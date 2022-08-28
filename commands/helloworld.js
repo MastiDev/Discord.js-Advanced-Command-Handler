@@ -1,6 +1,4 @@
 const Command = require("../structures/command.js");
-const { red } = require('chalk');
-const embeds = require('../utils/embeds.js');
 
 module.exports = new Command({
 	name: "hello",
@@ -9,12 +7,9 @@ module.exports = new Command({
 
 	async run(message, args, client) {
 		try {
-			
-			message.reply("Hello world!");
-
+			message.reply("Hello World!");
 		} catch (error) {
-			embeds.errorEmbed(client, message, "Something went wrong.");
-			console.log(red(`[COMMAND] In the command ${this.name} an error has occurred -> ${error}`))
+			console.log(error);
 		}
 	}
 });

@@ -1,14 +1,9 @@
 const Event = require("../structures/event.js");
 const config = require("../data/config.json");
-const { red } = require('chalk');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const util = require('util');
 
-const embeds = require('../utils/embeds.js');
-
 var con = mysql.createPool({
-    multipleStatements: true,
-    insecureAuth: true,
     host: `${config.mysql.host}`,
     port: `${config.mysql.port}`,
     user: `${config.mysql.user}`,
@@ -27,12 +22,12 @@ module.exports = new Event("messageCreate", async(client, message) => {
         if (rows.length < 1) await dbquery(`INSERT INTO guilds (id, guildid) VALUES (NULL, '${message.guild.id}')`);
         
         const p = await getprefix(message.guild.id);
-        const prefix = await p
+        const prefix = await p;
 
         if (message.content.startsWith(prefix)) {
             const args = message.content.substring(prefix.length).split(/ +/);
             const command = client.commands.find(cmd => cmd.name == args[0] || cmd.aliases.includes(args[0]));
-            if (!command) return //message.reply(`${args[0]} is not a valid command!`);
+            if (!command) return //message.reply(`${args[0]} is not a valid command!`); //uncomment this if you want that the bot replies when the error is not a valid command!
             command.run(message, args, client)
         } else {
             // Here you can add commands that are not have a prefix.
@@ -40,8 +35,7 @@ module.exports = new Event("messageCreate", async(client, message) => {
         }
 
     } catch (error) {
-        embeds.errorEmbed(client, message, "Something went wrong.");
-        return console.log(red(`[EVENT] In the event messageCreate an error has occurred -> ${error}`))
+        return console.log(error);
     }
 });
 

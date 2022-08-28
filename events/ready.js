@@ -2,7 +2,7 @@ const Event = require("../structures/event.js");
 const config = require("../data/config.json");
 const { red, yellow } = require('chalk');
 const { version } = require('../package.json');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const util = require('util');
 
 var con = mysql.createPool({

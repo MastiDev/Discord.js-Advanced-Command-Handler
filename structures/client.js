@@ -1,4 +1,4 @@
-const { red, green, blue, yellow, cyan, greenBright, redBright, grey, yellowBright, cyanBright, black, blueBright } = require('chalk');
+const { yellow, greenBright } = require('chalk');
 const chalk = require('chalk');
 
 const Discord = require("discord.js");
@@ -6,13 +6,12 @@ const Command = require("./command.js");
 const Event = require("./event.js");
 
 const config = require("../data/config.json");
-const intents = new Discord.Intents(32767);
 const fs = require("fs");
 
 class Client extends Discord.Client {
 	constructor() {
 		super({ 
-			intents: intents,
+			intents: config.bot.intents,
 			allowedMentions: { 
 				repliedUser: false 
 			} 

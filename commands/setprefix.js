@@ -2,10 +2,8 @@ const Command = require("../structures/command.js");
 const Discord = require("discord.js");
 const config = require("../data/config.json");
 const { red } = require('chalk');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const util = require('util');
-
-const embeds = require('../utils/embeds.js');
 
 var con = mysql.createPool({
     multipleStatements: true,
@@ -30,11 +28,11 @@ module.exports = new Command({
 
 			let rows = await dbquery(`SELECT * FROM guilds WHERE guildid = '${message.guild.id}'`);	
 
-			if (!args[1]) return embeds.errorEmbed(client, message, `Use ${rows[0].prefix}setprefix <prefix>`);
+			if (!args[1]) return message.reply(`Use ${rows[0].prefix}setprefix <prefix>`);
 
 			await dbquery(`UPDATE guilds SET prefix = '${args[1]}' WHERE guildid = '${message.guild.id}'`);
 			
-			const embed = new Discord.MessageEmbed()
+			const embed = new Discord.EmbedBuilder()
 				.setTitle("Prefix changed!")
 				.setDescription(`The prefix has been changed to ${args[1]}`)
 				.setColor("149C51")
@@ -42,8 +40,7 @@ module.exports = new Command({
 			message.reply({embeds: [embed]});
 
 		} catch (error) {
-            embeds.errorEmbed(client, message, "Something went wrong.");
-			console.log(red(`[COMMAND] In the command ${this.name} an error has occurred -> ${error}`))
+			console.log(error);
 		}
 	}
 });
