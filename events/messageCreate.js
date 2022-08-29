@@ -17,17 +17,12 @@ module.exports = new Event("messageCreate", async(client, message) => {
     try {
         if (message.author.bot) return;
 
-        const rows = await dbquery(`SELECT * FROM guilds WHERE guildid = ${message.guild.id}`);
-
-        if (rows.length < 1) await dbquery(`INSERT INTO guilds (id, guildid) VALUES (NULL, '${message.guild.id}')`);
-        
-        const p = await getprefix(message.guild.id);
-        const prefix = await p;
+        let prefix = await getprefix(message.guild.id);
 
         if (message.content.startsWith(prefix)) {
             const args = message.content.substring(prefix.length).split(/ +/);
             const command = client.commands.find(cmd => cmd.name == args[0] || cmd.aliases.includes(args[0]));
-            if (!command) return //message.reply(`${args[0]} is not a valid command!`); //uncomment this if you want that the bot replies when the error is not a valid command!
+            if (!command) return //message.reply(`${args[0]} is not a valid command!`); //uncomment if you want that the bot replies when the command is not a valid command!
             command.run(message, args, client)
         } else {
             // Here you can add commands that are not have a prefix.
@@ -39,10 +34,15 @@ module.exports = new Event("messageCreate", async(client, message) => {
     }
 });
 
-async function getprefix(id) {
-    const rows = await dbquery(`SELECT * FROM guilds WHERE guildid = '${id}'`);
+async function getprefix(guildid) {
+    let rows = await dbquery(`SELECT prefix FROM guilds WHERE guildid = ${guildid}`);
     if (rows.length < 1) {
-        return "%";
+        await dbquery(`INSERT IGNORE INTO guilds (id, guildid) VALUES (NULL, '${guildid}')`);
+        return "!";
+    }
+    if (rows[0].prefix == null) {
+        await dbquery(`UPDATE guilds SET prefix = '!' WHERE guildid = ${guildid}`);
+        return "!";
     }
     return rows[0].prefix;
 }

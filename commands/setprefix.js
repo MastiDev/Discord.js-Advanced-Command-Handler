@@ -1,7 +1,6 @@
 const Command = require("../structures/command.js");
 const Discord = require("discord.js");
 const config = require("../data/config.json");
-const { red } = require('chalk');
 const mysql = require('mysql2');
 const util = require('util');
 
