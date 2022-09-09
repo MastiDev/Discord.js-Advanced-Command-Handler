@@ -34,6 +34,6 @@ module.exports = new Event("ready", async(client) => {
         }, 5000);
 
     } catch (error) {
-        return console.log(red(`[EVENT] In the event ready an error has occurred -> ${error}`))
+        return console.log(error);
     }
 });
