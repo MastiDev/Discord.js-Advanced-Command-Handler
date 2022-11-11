@@ -107,4 +107,5 @@ dist
 ###                  ###
 ### FOR THIS PROJECT ###
 ###                  ###
-config.json
+src/data/config.js
+old
