@@ -1,17 +1,20 @@
+// eslint-disable-next-line no-undef
 module.exports = {
 	'env': {
-		'browser': false,
-		'es2021': true
+		'node': true,
+		'commonjs': true,
 	},
 	'extends': 'eslint:recommended',
 	'overrides': [
+		{
+			'files': ['src/**/*'],
+		}
 	],
 	'parserOptions': {
 		'ecmaVersion': 'latest',
 		'sourceType': 'module'
 	},
 	'rules': {
-		'no-console': 'true',
 		'indent': [
 			'error',
 			'tab'
