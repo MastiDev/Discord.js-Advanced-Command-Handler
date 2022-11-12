@@ -6,6 +6,7 @@ import mysql from 'mysql2';
 
 import commandHandler from './handlers/commands.js';
 import eventHandler from './handlers/events.js';
+import slashCommandHandler from './handlers/slashCommands.js';
 
 console.clear();
 
@@ -39,15 +40,16 @@ const client = new Discord.Client({
 		repliedUser: true 
 	}
 });
+await client.login(`${config.bot.token}`);
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+client.slashCommands = new Discord.Collection();
 
 await commandHandler.loadCommands(client);
 await eventHandler.loadEvents(client);
+await slashCommandHandler.loadSlashCommands(client);
 
 process.on('uncaughtException', function (err) {
 	console.error(err);
 });
-
-client.login(`${config.bot.token}`);

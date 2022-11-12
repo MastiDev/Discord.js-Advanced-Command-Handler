@@ -1,6 +1,6 @@
 {
   "name": "discord.js-advanced-command-handler",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "🤖 Discord.js V14 Command and Event Handler",
   "main": "src/index.js",
   "type": "module",
