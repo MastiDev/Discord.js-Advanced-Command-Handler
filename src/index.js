@@ -19,7 +19,7 @@ var con = mysql.createPool({
 const dbquery = util.promisify(con.query).bind(con);
 
 // Check if Table Exists if not the bot will create it
-await dbquery('SHOW TABLES LIKE \'guilds\'').then(async (rows) => {
+dbquery('SHOW TABLES LIKE \'guilds\'').then(async (rows) => {
 	if (rows.length < 1) {
 		dbquery(`CREATE TABLE guilds (
 		id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -48,7 +48,7 @@ const client = new Discord.Client({
 	}
 });
 
-await client.login(`${config.bot.token}`);
+await client.login(config.bot.token);
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
