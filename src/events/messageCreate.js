@@ -18,15 +18,19 @@ export default {
 		try {
 			if (message.author.bot) return;
 			let prefix = await getPrefix(message.guild.id);
-	
+
 			if (message.content.startsWith(prefix)) {
 				const args = message.content.substring(prefix.length).split(/ +/);
 				const command = client.commands.find(cmd => cmd.name == args[0] || cmd.aliases.includes(args[0]));
-				if (!command) return; //message.reply(`${args[0]} is not a valid command!`); //uncomment if you want that the bot replies when the command is not a valid command!
-				command.execute(message, args, client);
+				if (!command) return;
+				try {
+					command.execute(message, args, client);
+				} catch (error) {
+					message.reply('There was an error trying to execute that command!');
+					console.log(error);
+				}
 			} else {
-				// Here you can add commands that are not have a prefix.
-				// like when somebody pings the bot.
+				if (message.mentions.users.first() == client.user) message.channel.send('Hello!');
 			}
 		} catch (error) {
 			console.log(error);

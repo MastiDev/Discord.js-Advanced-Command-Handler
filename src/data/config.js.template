@@ -2,14 +2,14 @@ const config = {
 	bot: {
 		token: 'TOKEN',
 		intents: 'INTENT',
-		eval: '0',
+		owner: '0',
 	},
 	mysql: {
 		host: 'HOST',
 		port: 'PORT',
 		user: 'USER',
 		password: 'PASSWORD',
-		database: 'DATABASE'
+		database: 'DATABASE',
 	},
 };
 

@@ -1,11 +1,12 @@
 import chalk from 'chalk';
-import config from '../data/config.js';
+import { readFileSync } from 'fs';
+let version = JSON.parse(readFileSync('./package.json', 'utf8')).version;
 
 export default {
 	event: 'ready',
 	async execute(client) {
 		try {
-			console.log(chalk.yellow(`[LOGIN] logged in as ${client.user.tag} -> Version ${config.version}`));
+			console.log(chalk.yellow(`[LOGIN] logged in as ${client.user.tag} -> Version ${version}`));
 		} catch (error) {
 			return console.log(error);
 		}

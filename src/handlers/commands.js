@@ -5,7 +5,7 @@ async function loadCommands(client) {
 	const commandFiles = readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 	for (let i = 0; i < commandFiles.length; i++) {
 		const cmd = await import(`../commands/${commandFiles[i]}`);
-		client.commands.set(cmd.default.name, cmd.default);
+		await client.commands.set(cmd.default.name, cmd.default);
 		console.log(chalk.greenBright(`[COMMAND] Loaded ${(chalk.yellow(commandFiles[i]))} with command ${(chalk.yellow(cmd.default.name))} ${(chalk.yellow(`[${cmd.default.aliases}]`))}`));
 
 		if (cmd.default.aliases) {
@@ -17,17 +17,17 @@ async function loadCommands(client) {
 }
 
 async function reloadCommands(client) {
-	await client.commands.clear();
-	await client.aliases.clear();
+	client.commands.clear();
+	client.aliases.clear();
 	const commandFiles = readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 	for (let i = 0; i < commandFiles.length; i++) {
 		const cmd = await import(`../commands/${commandFiles[i]}?${Date.now()}`);
-		await client.commands.set(cmd.default.name, cmd.default);
+		client.commands.set(cmd.default.name, cmd.default);
 		console.log(chalk.greenBright(`[COMMAND] Reloaded ${chalk.yellow(commandFiles[i])} with command ${chalk.yellow(cmd.default.name)} ${chalk.yellow(`[${cmd.default.aliases}]`)}`));
 
 		if (cmd.default.aliases) {
 			cmd.default.aliases.forEach(async (alias)  => {
-				await client.aliases.set(alias, cmd.default);
+				client.aliases.set(alias, cmd.default);
 			});
 		}
 	}

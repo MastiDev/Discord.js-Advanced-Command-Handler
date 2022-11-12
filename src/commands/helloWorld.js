@@ -4,10 +4,6 @@ export default {
 	aliases: ['hey', 'hi'],
 
 	async execute(message) {
-		try {
-			message.reply('Hello World!');
-		} catch (error) {
-			console.log(error);
-		}
+		message.reply('Hello World!');
 	}
 };

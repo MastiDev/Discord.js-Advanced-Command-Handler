@@ -8,8 +8,6 @@ import commandHandler from './handlers/commands.js';
 import eventHandler from './handlers/events.js';
 import slashCommandHandler from './handlers/slashCommands.js';
 
-console.clear();
-
 var con = mysql.createPool({
 	host: `${config.mysql.host}`,
 	port: `${config.mysql.port}`,
@@ -35,11 +33,21 @@ await dbquery('SHOW TABLES LIKE \'guilds\'').then(async (rows) => {
 });
 
 const client = new Discord.Client({
-	intents: config.bot.intents,
+	intents: [
+		Discord.GatewayIntentBits.MessageContent,
+		Discord.GatewayIntentBits.Guilds,
+		Discord.GatewayIntentBits.GuildMessages,
+		Discord.GatewayIntentBits.GuildMembers,
+		Discord.GatewayIntentBits.GuildIntegrations,
+		Discord.GatewayIntentBits.GuildPresences,
+		Discord.GatewayIntentBits.GuildMessageTyping,
+		Discord.GatewayIntentBits.DirectMessages,
+	],
 	allowedMentions: { 
-		repliedUser: true 
+		repliedUser: false // This will allow the bot to ping the user who used the command
 	}
 });
+
 await client.login(`${config.bot.token}`);
 
 client.commands = new Discord.Collection();

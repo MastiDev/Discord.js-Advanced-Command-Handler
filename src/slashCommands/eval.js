@@ -9,7 +9,7 @@ export default {
 		.setDescription('Evaluate code'),
 	async execute(client, interaction) {
 		try {
-			if(interaction.user.id !== config.bot.eval) return interaction.reply('You do not have permission to use this command.');
+			if(interaction.user.id !== config.bot.owner) return interaction.reply('You do not have permission to use this command.');
 			try {
 				const evaled = eval(interaction.options.getString('input'));
 				const cleaned = await clean(evaled);
