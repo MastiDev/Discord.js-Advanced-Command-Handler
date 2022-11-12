@@ -1,5 +1,16 @@
 const config = {
-    token: 'TOKEN',
+	bot: {
+		token: 'TOKEN',
+		intents: 'INTENT',
+		eval: '0',
+	},
+	mysql: {
+		host: 'HOST',
+		port: 'PORT',
+		user: 'USER',
+		password: 'PASSWORD',
+		database: 'DATABASE'
+	},
 };
 
 export default config;

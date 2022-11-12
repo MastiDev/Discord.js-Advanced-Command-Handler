@@ -23,6 +23,8 @@
   "dependencies": {
     "chalk": "^5.1.2",
     "discord.js": "^14.6.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mysql2": "^2.3.3",
+    "util": "^0.12.5"
   }
 }
