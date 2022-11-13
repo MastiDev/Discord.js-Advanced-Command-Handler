@@ -10,7 +10,7 @@ It is a simple event and command handler for Discord.js V14.
 
 ## Installation
 1. Update your token and MySQL connection information in the config. 
-2. Rename the `config.json.TEMPLATE` to `config.js`
+2. Rename the `config.js.TEMPLATE` to `config.js`
 3. Run the following command to install the package: `npm install`
 4. Run the bot with the following command: `node .`
 5. Enjoy!
