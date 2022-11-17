@@ -1,7 +1,6 @@
 const config = {
 	bot: {
 		token: 'TOKEN',
-		intents: 'INTENT',
 		owner: '0',
 	},
 	mysql: {
