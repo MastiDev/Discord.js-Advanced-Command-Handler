@@ -11,11 +11,11 @@ async function loadSlashCommands(client) {
 		const command = await import(`../slashCommands/${slashCommands[i]}?${Date.now()}`);
 		client.slashCommands.set(command.default.data.toJSON().name, command.default);
 		console.log(chalk.greenBright(`[SLASHCOMMAND] Loaded ${chalk.yellow(slashCommands[i])} with command ${chalk.yellow(command.default.data.toJSON().name)}`));
-		rest.put(
-			Routes.applicationCommands(client.user.id),
-			{ body: client.slashCommands.map(cmd => cmd.data.toJSON()) },
-		);
 	}
+	rest.put(
+		Routes.applicationCommands(client.user.id),
+		{ body: client.slashCommands.map(cmd => cmd.data.toJSON()) },
+	);
 }
 
 async function reloadSlashCommands(client) {
@@ -25,11 +25,11 @@ async function reloadSlashCommands(client) {
 		const command = await import(`../slashCommands/${slashCommands[i]}`);
 		client.slashCommands.set(command.default.data.toJSON().name, command.default);
 		console.log(chalk.greenBright(`[SLASHCOMMAND] Reloaded ${chalk.yellow(slashCommands[i])} with command ${chalk.yellow(command.default.data.toJSON().name)}`));
-		rest.put(
-			Routes.applicationCommands(client.user.id),
-			{ body: client.slashCommands.map(cmd => cmd.data.toJSON()) },
-		);
 	}
+	rest.put(
+		Routes.applicationCommands(client.user.id),
+		{ body: client.slashCommands.map(cmd => cmd.data.toJSON()) },
+	);
 	return slashCommands.length;
 }
 
