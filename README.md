@@ -1,7 +1,7 @@
 # Discord.js-Advanced-Command-Handler
 
 Simple and easy to use Slash Command Handler for Discord.js v14.
-If you want a old School Message Command Handler, check out [this older Release](https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/releases/tag/2.0.1) repository.
+If you want a old School Message Command Handler, check out [this older Release](https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/releases/tag/2.0.1).
 
 ## Prerequisites
 - Node.js v19.8.1 or newer is required.
