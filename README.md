@@ -1,26 +1,20 @@
 # Discord.js-Advanced-Command-Handler
 
-It is a simple event and command handler for Discord.js V14. 
-
-[![Download](https://img.shields.io/badge/Download-blue?style=flat-square)](https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/releases)
+Simple and easy to use Slash Command Handler for Discord.js v14.
+If you want a old School Message Command Handler, check out [this older Release](https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/releases/tag/2.0.1) repository.
 
 ## Prerequisites
-1. MySQL database is required!
-2. Node.js v18.9.0 or newer is required.
+- Node.js v19.8.1 or newer is required.
 
 ## Installation
-1. Update your token and MySQL connection information in the config. 
+1. Fill out the `config.js.TEMPLATE` file with your bot's token and your userid.
 2. Rename the `config.js.TEMPLATE` to `config.js`
 3. Run the following command to install the package: `npm install`
-4. Run the bot with the following command: `node .`
+4. Run the bot with the following command: `npm start` or `node .`
 5. Enjoy!
 
 ## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+Just make a pull request and I will review it.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

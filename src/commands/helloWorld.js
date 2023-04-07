@@ -1,9 +1,10 @@
-export default {
-	name: 'hello',
-	description: 'Hello world.',
-	aliases: ['hey', 'hi'],
+import { SlashCommandBuilder } from '@discordjs/builders';
 
-	async execute(message) {
-		message.reply('Hello World!');
+export default {
+	data: new SlashCommandBuilder()
+		.setName('hello')
+		.setDescription('Replies with Hello World!'),
+	async execute(client, interaction) {
+		interaction.reply('Hello World!');
 	}
 };

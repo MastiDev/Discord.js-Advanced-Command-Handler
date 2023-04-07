@@ -1,11 +1,11 @@
 {
   "name": "discord.js-advanced-command-handler",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "🤖 Discord.js V14 Command and Event Handler",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "chalk": "^5.1.2",
-    "discord.js": "^14.6.0",
-    "mysql2": "^2.3.3"
+    "discord.js": "^14.9.0"
   }
 }
