@@ -1,6 +1,6 @@
 import { inspect } from 'util';
 import { SlashCommandBuilder } from '@discordjs/builders';
-import config from '../data/config.js';
+import config from '../../data/config.js';
 
 export default {
 	data: new SlashCommandBuilder()
