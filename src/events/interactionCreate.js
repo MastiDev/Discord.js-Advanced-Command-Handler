@@ -1,7 +1,19 @@
 export default {
 	event: 'interactionCreate',
 	async execute(client, interaction) {
-		try { 
+		try {
+
+			if (interaction.isUserContextMenuCommand() === true) {
+				const contextMenu = client.contextMenus.get(interaction.commandName);
+				if (!contextMenu) return;
+				try {
+					contextMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this context menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
 			if (interaction.isCommand()) {
 				const command = client.slashCommands.get(interaction.commandName);
 				if (!command) return;
