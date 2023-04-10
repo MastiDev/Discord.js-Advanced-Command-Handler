@@ -1,5 +1,5 @@
 export default {
-	id: 'testg',
+	id: 'test',
 	async execute(client, interaction) {
 		interaction.reply('Hello World! Button');
 	}

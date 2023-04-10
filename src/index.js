@@ -2,6 +2,7 @@ import Discord from 'discord.js';
 import config from './data/config.js';
 
 import eventHandler from './handlers/events.js';
+import messageCommandHandler from './handlers/messageCommands.js';
 import slashCommandHandler from './handlers/slashCommands.js';
 import modalHandler from './handlers/modals.js';
 import buttonHandler from './handlers/buttons.js';
@@ -27,6 +28,8 @@ const client = new Discord.Client({
 
 await client.login(config.bot.token);
 
+client.messageCommands = new Discord.Collection();
+client.messageCommandsAliases = new Discord.Collection();
 client.slashCommands = new Discord.Collection();
 client.modals = new Discord.Collection();
 client.buttons = new Discord.Collection();
@@ -34,6 +37,7 @@ client.selectMenus = new Discord.Collection();
 client.contextMenus = new Discord.Collection();
 
 await eventHandler.loadEvents(client);
+await messageCommandHandler.loadMessageCommands(client);
 await slashCommandHandler.loadSlashCommands(client);
 await modalHandler.loadModals(client);
 await buttonHandler.loadButtons(client);
