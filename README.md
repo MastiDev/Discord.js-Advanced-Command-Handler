@@ -1,17 +1,28 @@
 # Discord.js-Advanced-Command-Handler
 
 Simple and easy to use Slash Command Handler for Discord.js v14.
-If you want a old School Message Command Handler, check out [this older Release](https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/releases/tag/2.0.1).
 
 ## Prerequisites
-- Node.js v19.8.1 or newer is required.
+- Node.js v20.0.0 or newer is required. You can download it [here](https://nodejs.org/en/download/).
 
 ## Installation
-1. Fill out the `config.js.TEMPLATE` file with your bot's token and your userid.
+1. Fill out the `config.js.TEMPLATE` located in the `src/data` folder.
 2. Rename the `config.js.TEMPLATE` to `config.js`
 3. Run the following command to install the package: `npm install`
 4. Run the bot with the following command: `npm start` or `node .`
 5. Enjoy!
+
+## Categories
+Category folders are optional, but you cant have a subfolder in a category.
+```
+├───interactions
+│   ├───slashCommands
+│   │   ├───example.js
+│   │   └───category
+│   │       └───example.js
+│   ├───selectMenus
+...
+```
 
 ## Contributing
 Just make a pull request and I will review it.
