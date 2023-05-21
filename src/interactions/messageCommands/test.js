@@ -1,7 +1,7 @@
 export default {
-	name: 'hello2',
+	name: 'hello',
 	description: 'Hello world.',
-	aliases: ['hey2', 'hi2'],
+	aliases: ['hey', 'hi'],
 
 	async execute(client, message, args) {
 		message.reply('Hello World!');
