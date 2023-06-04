@@ -8,7 +8,7 @@ export default {
 
 			if (message.content.startsWith(config.bot.prefix)) {
 				const args = message.content.slice(config.bot.prefix.length).trim().split(/ +/);
-				const command = client.messageCommands.get(args[0]) || client.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(args[0]));
+				const command = client.interaction.get(`messageCommand-${args[0]}`);
 				if (!command) return;
 				try {
 					command.execute(client, message, args);

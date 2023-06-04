@@ -11,4 +11,4 @@ async function loadEvents(client) {
 	}
 }
 
-export default { loadEvents };
+export default loadEvents;

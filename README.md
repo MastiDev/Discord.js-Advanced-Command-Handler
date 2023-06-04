@@ -1,5 +1,4 @@
 # Discord.js-Advanced-Command-Handler
-
 Simple and easy to use Slash Command Handler for Discord.js v14.
 
 ## Prerequisites
@@ -13,20 +12,8 @@ Simple and easy to use Slash Command Handler for Discord.js v14.
 5. Enjoy!
 
 ## Categories
-Category folders are optional, but you cant have a subfolder in a category.
-```
-├───interactions
-│   ├───slashCommands
-│   │   ├───example.js
-│   │   └───category
-│   │       └───example.js
-│   ├───selectMenus
-...
-```
-
-## Select Menus
-In order to use select menus you can either put them all in ``/interactions/selectMenus`` or divided by their category in their according folder.
-Example: A user select menu would be in ``/interactions/userSelectMenus/example.js``
+You can create as many subfolders as you want, and each of these folders can have an unlimited number of nested subfolders.
+You only need to specify the interaction like the already existing ones in the ``/interactions`` folder.
 
 ## Contributing
 Just make a pull request and I will review it.

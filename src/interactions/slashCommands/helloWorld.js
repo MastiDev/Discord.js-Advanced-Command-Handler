@@ -1,8 +1,12 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
+import Discord from 'discord.js';
 
+let commandID = 'hello';
 export default {
-	data: new SlashCommandBuilder()
-		.setName('hello')
+	id: commandID,
+	type: 'slashCommand',
+	disabled: false,
+	data: new Discord.SlashCommandBuilder()
+		.setName(commandID)
 		.setDescription('Replies with Hello World!'),
 	async execute(client, interaction) {
 		interaction.reply('Hello World!');

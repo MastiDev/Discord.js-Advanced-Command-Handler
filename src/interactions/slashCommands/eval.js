@@ -2,10 +2,14 @@ import { inspect } from 'util';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import config from '../../data/config.js';
 
+let commandID = 'eval';
 export default {
+	id: commandID,
+	type: 'slashCommand',
+	disabled: false,
 	data: new SlashCommandBuilder()
 		.addStringOption(option => option.setName('input').setDescription('The input to echo back'))
-		.setName('eval')
+		.setName(commandID)
 		.setDescription('Evaluate code'),
 	async execute(client, interaction) {
 		try {
