@@ -91,6 +91,17 @@ export default {
 					console.log(error);
 				}
 			}
+
+			if (interaction.isRoleSelectMenu()) {
+				const roleSelectMenu = client.roleSelectMenus.get(interaction.customId);
+				if (!roleSelectMenu) return;
+				try {
+					roleSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
 			
 		} catch (error) {
 			return console.log(error);
