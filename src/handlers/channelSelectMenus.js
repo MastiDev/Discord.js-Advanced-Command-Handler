@@ -17,7 +17,7 @@ async function loadChannelSelectMenus(client) {
 	for (let i = 0; i < channelSelectMenuFolders.length; i++) {
 		const channelSelectMenuFiles = readdirSync(`./src/interactions/channelSelectMenus/${channelSelectMenuFolders[i].name}`).filter(file => file.endsWith('.js'));
 		for (let j = 0; j < channelSelectMenuFiles.length; j++) {
-			const channelSelectMenu = await import(`../interactions/channelSelectMenus/${selectMenuFolders[i].name}/${selectMenuFiles[j]}?${Date.now()}`);
+			const channelSelectMenu = await import(`../interactions/channelSelectMenus/${channelSelectMenuFolders[i].name}/${channelSelectMenuFiles[j]}?${Date.now()}`);
 			await client.channelSelectMenus.set(channelSelectMenu.default.id, channelSelectMenu.default);
 			console.log(chalk.greenBright(`[channelSelectMenu] Loaded ${(chalk.yellow(channelSelectMenuFiles[j]))} with channelSelectMenu ${(chalk.yellow(channelSelectMenu.default.id))}`));
 			files++;

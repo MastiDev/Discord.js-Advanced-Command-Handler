@@ -102,6 +102,17 @@ export default {
 					console.log(error);
 				}
 			}
+
+			if (interaction.isUserSelectMenu()) {
+				const userSelectMenu = client.userSelectMenus.get(interaction.customId);
+				if (!userSelectMenu) return;
+				try {
+					userSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
 			
 		} catch (error) {
 			return console.log(error);

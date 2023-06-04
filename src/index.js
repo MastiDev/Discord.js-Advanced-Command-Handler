@@ -10,6 +10,7 @@ import stringSelectMenuHandler from './handlers/stringSelectMenus.js';
 import channelSelectMenuHandler from './handlers/channelSelectMenus.js';
 import mentionableSelectMenuHandler from './handlers/mentionableSelectMenus.js';
 import roleSelectMenuHandler from './handlers/roleSelectMenus.js';
+import userSelectMenuHandler from './handlers/userSelectMenus.js';
 import contextMenus from './handlers/contextMenus.js';
 import register from './handlers/register.js';
 
@@ -40,6 +41,7 @@ client.stringSelectMenus = new Discord.Collection();
 client.channelSelectMenus = new Discord.Collection();
 client.mentionableSelectMenus = new Discord.Collection();
 client.roleSelectMenus = new Discord.Collection();
+client.userSelectMenus = new Discord.Collection();
 client.contextMenus = new Discord.Collection();
 
 await eventHandler.loadEvents(client);
@@ -51,6 +53,7 @@ await stringSelectMenuHandler.loadStringSelectMenus(client);
 await channelSelectMenuHandler.loadChannelSelectMenus(client);
 await mentionableSelectMenuHandler.loadMentionableSelectMenus(client);
 await roleSelectMenuHandler.loadRoleSelectMenus(client);
+await userSelectMenuHandler.loadUserSelectMenus(client);
 await contextMenus.loadContextMenus(client);
 await register.load(client);
 

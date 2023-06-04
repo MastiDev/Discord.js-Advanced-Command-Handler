@@ -17,7 +17,7 @@ async function loadStringSelectMenus(client) {
 	for (let i = 0; i < stringSelectMenuFolders.length; i++) {
 		const stringSelectMenuFiles = readdirSync(`./src/interactions/stringSelectMenus/${stringSelectMenuFolders[i].name}`).filter(file => file.endsWith('.js'));
 		for (let j = 0; j < stringSelectMenuFiles.length; j++) {
-			const stringSelectMenu = await import(`../interactions/stringSelectMenus/${selectMenuFolders[i].name}/${selectMenuFiles[j]}?${Date.now()}`);
+			const stringSelectMenu = await import(`../interactions/stringSelectMenus/${stringSelectMenuFolders[i].name}/${stringSelectMenuFiles[j]}?${Date.now()}`);
 			await client.stringSelectMenus.set(stringSelectMenu.default.id, stringSelectMenu.default);
 			console.log(chalk.greenBright(`[STRINGSELECTMENU] Loaded ${(chalk.yellow(stringSelectMenuFiles[j]))} with stringSelectMenu ${(chalk.yellow(stringSelectMenu.default.id))}`));
 			files++;

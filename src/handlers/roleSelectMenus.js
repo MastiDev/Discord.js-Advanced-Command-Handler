@@ -17,7 +17,7 @@ async function loadRoleSelectMenus(client) {
 	for (let i = 0; i < roleSelectMenuFolders.length; i++) {
 		const roleSelectMenuFiles = readdirSync(`./src/interactions/roleSelectMenus/${roleSelectMenuFolders[i].name}`).filter(file => file.endsWith('.js'));
 		for (let j = 0; j < roleSelectMenuFiles.length; j++) {
-			const roleSelectMenu = await import(`../interactions/roleSelectMenus/${selectMenuFolders[i].name}/${selectMenuFiles[j]}?${Date.now()}`);
+			const roleSelectMenu = await import(`../interactions/roleSelectMenus/${roleSelectMenuFolders[i].name}/${roleSelectMenuFiles[j]}?${Date.now()}`);
 			await client.roleSelectMenus.set(roleSelectMenu.default.id, roleSelectMenu.default);
 			console.log(chalk.greenBright(`[roleSelectMenu] Loaded ${(chalk.yellow(roleSelectMenuFiles[j]))} with roleSelectMenu ${(chalk.yellow(roleSelectMenu.default.id))}`));
 			files++;
