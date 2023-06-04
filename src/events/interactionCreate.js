@@ -57,6 +57,18 @@ export default {
 					console.log(error);
 				}
 			}
+			//TODO
+
+			if (interaction.isStringSelectMenu()) {
+				const stringSelectMenu = client.stringSelectMenus.get(interaction.customId);
+				if (!stringSelectMenu) return;
+				try {
+					tringS.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
 			
 		} catch (error) {
 			return console.log(error);
