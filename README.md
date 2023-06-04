@@ -24,6 +24,10 @@ Category folders are optional, but you cant have a subfolder in a category.
 ...
 ```
 
+## Select Menus
+In order to use select menus you can either put them all in ``/interactions/selectMenus`` or divided by their category in their according folder.
+Example: A user select menu would be in ``/interactions/userSelectMenus/example.js``
+
 ## Contributing
 Just make a pull request and I will review it.
 
