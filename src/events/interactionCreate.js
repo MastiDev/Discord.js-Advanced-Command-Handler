@@ -80,6 +80,17 @@ export default {
 					console.log(error);
 				}
 			}
+
+			if (interaction.isMentionableSelectMenu()) {
+				const mentionableSelectMenu = client.mentionableSelectMenus.get(interaction.customId);
+				if (!mentionableSelectMenu) return;
+				try {
+					mentionableSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
 			
 		} catch (error) {
 			return console.log(error);
