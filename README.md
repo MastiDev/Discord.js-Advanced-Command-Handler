@@ -3,7 +3,7 @@
 Simple and easy to use Slash Command Handler for Discord.js v14.
 
 ## Prerequisites
-- Node.js v20.0.0 or newer is required. You can download it [here](https://nodejs.org/en/download/).
+- Node.js v18.16.0 or newer is recommended. Older versions might work. You can download it [here](https://nodejs.org/en/download/).
 
 ## Installation
 1. Fill out the `config.js.TEMPLATE` located in the `src/data` folder.
@@ -23,6 +23,10 @@ Category folders are optional, but you cant have a subfolder in a category.
 │   ├───selectMenus
 ...
 ```
+
+## Select Menus
+In order to use select menus you can either put them all in ``/interactions/selectMenus`` or divided by their category in their according folder.
+Example: A user select menu would be in ``/interactions/userSelectMenus/example.js``
 
 ## Contributing
 Just make a pull request and I will review it.

@@ -47,11 +47,66 @@ export default {
 				}
 			}
 
-			if (interaction.isStringSelectMenu()) {
+			if (interaction.isAnySelectMenu()) {
 				const selectMenu = client.selectMenus.get(interaction.customId);
 				if (!selectMenu) return;
 				try {
 					selectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isStringSelectMenu()) {
+				const stringSelectMenu = client.stringSelectMenus.get(interaction.customId);
+				if (!stringSelectMenu) return;
+				try {
+					stringSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isChannelSelectMenu()) {
+				const channelSelectMenu = client.channelSelectMenus.get(interaction.customId);
+				if (!channelSelectMenu) return;
+				try {
+					channelSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isMentionableSelectMenu()) {
+				const mentionableSelectMenu = client.mentionableSelectMenus.get(interaction.customId);
+				if (!mentionableSelectMenu) return;
+				try {
+					mentionableSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isRoleSelectMenu()) {
+				const roleSelectMenu = client.roleSelectMenus.get(interaction.customId);
+				if (!roleSelectMenu) return;
+				try {
+					roleSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isUserSelectMenu()) {
+				const userSelectMenu = client.userSelectMenus.get(interaction.customId);
+				if (!userSelectMenu) return;
+				try {
+					userSelectMenu.execute(client, interaction);
 				} catch (error) {
 					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
 					console.log(error);
