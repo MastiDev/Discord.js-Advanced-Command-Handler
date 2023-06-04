@@ -47,7 +47,7 @@ export default {
 				}
 			}
 
-			if (interaction.isStringSelectMenu()) {
+			if (interaction.isAnySelectMenu()) {
 				const selectMenu = client.selectMenus.get(interaction.customId);
 				if (!selectMenu) return;
 				try {
