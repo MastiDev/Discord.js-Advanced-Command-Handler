@@ -3,7 +3,7 @@
 Simple and easy to use Slash Command Handler for Discord.js v14.
 
 ## Prerequisites
-- Node.js v20.0.0 or newer is required. You can download it [here](https://nodejs.org/en/download/).
+- Node.js v18.16.0 or newer is recommended. Older versions might work. You can download it [here](https://nodejs.org/en/download/).
 
 ## Installation
 1. Fill out the `config.js.TEMPLATE` located in the `src/data` folder.
