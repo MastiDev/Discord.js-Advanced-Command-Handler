@@ -63,7 +63,18 @@ export default {
 				const stringSelectMenu = client.stringSelectMenus.get(interaction.customId);
 				if (!stringSelectMenu) return;
 				try {
-					tringS.execute(client, interaction);
+					stringSelectMenu.execute(client, interaction);
+				} catch (error) {
+					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
+					console.log(error);
+				}
+			}
+
+			if (interaction.isChannelSelectMenu()) {
+				const channelSelectMenu = client.channelSelectMenus.get(interaction.customId);
+				if (!channelSelectMenu) return;
+				try {
+					channelSelectMenu.execute(client, interaction);
 				} catch (error) {
 					interaction.reply({ content: 'There was an error while executing this select menu!', ephemeral: true });
 					console.log(error);

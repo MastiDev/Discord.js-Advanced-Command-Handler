@@ -7,6 +7,7 @@ import slashCommandHandler from './handlers/slashCommands.js';
 import modalHandler from './handlers/modals.js';
 import buttonHandler from './handlers/buttons.js';
 import stringSelectMenuHandler from './handlers/stringSelectMenus.js';
+import channelSelectMenuHandler from './handlers/channelSelectMenus.js';
 import contextMenus from './handlers/contextMenus.js';
 import register from './handlers/register.js';
 
@@ -34,6 +35,7 @@ client.slashCommands = new Discord.Collection();
 client.modals = new Discord.Collection();
 client.buttons = new Discord.Collection();
 client.stringSelectMenus = new Discord.Collection();
+client.channelSelectMenus = new Discord.Collection();
 client.contextMenus = new Discord.Collection();
 
 await eventHandler.loadEvents(client);
@@ -42,6 +44,7 @@ await slashCommandHandler.loadSlashCommands(client);
 await modalHandler.loadModals(client);
 await buttonHandler.loadButtons(client);
 await stringSelectMenuHandler.loadStringSelectMenus(client);
+await channelSelectMenuHandler.loadChannelSelectMenus(client);
 await contextMenus.loadContextMenus(client);
 await register.load(client);
 
