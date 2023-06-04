@@ -9,7 +9,7 @@ async function loadMentionableSelectMenus(client) {
 	for (let i = 0; i < mentionableSelectMenuFiles.length; i++) {
 		const mentionableSelectMenu = await import(`../interactions/mentionableSelectMenus/${mentionableSelectMenuFiles[i]}?${Date.now()}`);
 		await client.mentionableSelectMenus.set(mentionableSelectMenu.default.id, mentionableSelectMenu.default);
-		console.log(chalk.greenBright(`[mentionableSelectMenu] Loaded ${(chalk.yellow(mentionableSelectMenuFiles[i]))} with mentionableSelectMenu ${(chalk.yellow(mentionableSelectMenu.default.id))}`));
+		console.log(chalk.greenBright(`[MENTIONABLESELECTMENU] Loaded ${(chalk.yellow(mentionableSelectMenuFiles[i]))} with mentionableSelectMenu ${(chalk.yellow(mentionableSelectMenu.default.id))}`));
 		files++;
 	}
 	const mentionableSelectMenuFolders = readdirSync('./src/interactions/mentionableSelectMenus', { withFileTypes: true }).filter(file => file.isDirectory());
@@ -19,7 +19,7 @@ async function loadMentionableSelectMenus(client) {
 		for (let j = 0; j < mentionableSelectMenuFiles.length; j++) {
 			const mentionableSelectMenu = await import(`../interactions/mentionableSelectMenus/${mentionableSelectMenuFolders[i].name}/${mentionableSelectMenuFiles[j]}?${Date.now()}`);
 			await client.mentionableSelectMenus.set(mentionableSelectMenu.default.id, mentionableSelectMenu.default);
-			console.log(chalk.greenBright(`[mentionableSelectMenu] Loaded ${(chalk.yellow(mentionableSelectMenuFiles[j]))} with mentionableSelectMenu ${(chalk.yellow(mentionableSelectMenu.default.id))}`));
+			console.log(chalk.greenBright(`[MENTIONABLESELECTMENU] Loaded ${(chalk.yellow(mentionableSelectMenuFiles[j]))} with mentionableSelectMenu ${(chalk.yellow(mentionableSelectMenu.default.id))}`));
 			files++;
 		}
 	}

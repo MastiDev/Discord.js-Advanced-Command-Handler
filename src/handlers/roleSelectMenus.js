@@ -9,7 +9,7 @@ async function loadRoleSelectMenus(client) {
 	for (let i = 0; i < roleSelectMenuFiles.length; i++) {
 		const roleSelectMenu = await import(`../interactions/roleSelectMenus/${roleSelectMenuFiles[i]}?${Date.now()}`);
 		await client.roleSelectMenus.set(roleSelectMenu.default.id, roleSelectMenu.default);
-		console.log(chalk.greenBright(`[roleSelectMenu] Loaded ${(chalk.yellow(roleSelectMenuFiles[i]))} with roleSelectMenu ${(chalk.yellow(roleSelectMenu.default.id))}`));
+		console.log(chalk.greenBright(`[ROLESELECTMENU] Loaded ${(chalk.yellow(roleSelectMenuFiles[i]))} with roleSelectMenu ${(chalk.yellow(roleSelectMenu.default.id))}`));
 		files++;
 	}
 	const roleSelectMenuFolders = readdirSync('./src/interactions/roleSelectMenus', { withFileTypes: true }).filter(file => file.isDirectory());
@@ -19,7 +19,7 @@ async function loadRoleSelectMenus(client) {
 		for (let j = 0; j < roleSelectMenuFiles.length; j++) {
 			const roleSelectMenu = await import(`../interactions/roleSelectMenus/${roleSelectMenuFolders[i].name}/${roleSelectMenuFiles[j]}?${Date.now()}`);
 			await client.roleSelectMenus.set(roleSelectMenu.default.id, roleSelectMenu.default);
-			console.log(chalk.greenBright(`[roleSelectMenu] Loaded ${(chalk.yellow(roleSelectMenuFiles[j]))} with roleSelectMenu ${(chalk.yellow(roleSelectMenu.default.id))}`));
+			console.log(chalk.greenBright(`[ROLESELECTMENU] Loaded ${(chalk.yellow(roleSelectMenuFiles[j]))} with roleSelectMenu ${(chalk.yellow(roleSelectMenu.default.id))}`));
 			files++;
 		}
 	}
