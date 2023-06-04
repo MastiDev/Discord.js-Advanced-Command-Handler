@@ -6,7 +6,7 @@ import messageCommandHandler from './handlers/messageCommands.js';
 import slashCommandHandler from './handlers/slashCommands.js';
 import modalHandler from './handlers/modals.js';
 import buttonHandler from './handlers/buttons.js';
-import selectMenuHandler from './handlers/selectMenus.js';
+import stringSelectMenuHandler from './handlers/stringSelectMenus.js';
 import contextMenus from './handlers/contextMenus.js';
 import register from './handlers/register.js';
 
@@ -33,7 +33,7 @@ client.messageCommandsAliases = new Discord.Collection();
 client.slashCommands = new Discord.Collection();
 client.modals = new Discord.Collection();
 client.buttons = new Discord.Collection();
-client.selectMenus = new Discord.Collection();
+client.stringSelectMenus = new Discord.Collection();
 client.contextMenus = new Discord.Collection();
 
 await eventHandler.loadEvents(client);
@@ -41,7 +41,7 @@ await messageCommandHandler.loadMessageCommands(client);
 await slashCommandHandler.loadSlashCommands(client);
 await modalHandler.loadModals(client);
 await buttonHandler.loadButtons(client);
-await selectMenuHandler.loadSelectMenus(client);
+await stringSelectMenuHandler.loadStringSelectMenus(client);
 await contextMenus.loadContextMenus(client);
 await register.load(client);
 
