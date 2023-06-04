@@ -57,7 +57,6 @@ export default {
 					console.log(error);
 				}
 			}
-			//TODO
 
 			if (interaction.isStringSelectMenu()) {
 				const stringSelectMenu = client.stringSelectMenus.get(interaction.customId);
