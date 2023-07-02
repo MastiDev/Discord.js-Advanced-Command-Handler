@@ -2,10 +2,12 @@
   "name": "discord.js-advanced-command-handler",
   "version": "3.1.0",
   "description": "🤖 Discord.js V14 Command and Event Handler",
-  "main": "src/index.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node .",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,11 @@
   },
   "homepage": "https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler#readme",
   "devDependencies": {
-    "eslint": "^8.27.0"
+    "@types/node": "^20.3.3",
+    "@types/node-cron": "^3.0.8",
+    "eslint": "^8.27.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "chalk": "^5.1.2",

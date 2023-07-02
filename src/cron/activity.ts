@@ -1,6 +1,8 @@
+import { Client } from 'discord.js';
+
 export default {
 	cron: '*/15 * * * * *',
-	async execute(client) {
+	async execute(client: Client) {
 		let activityList = [
 			`with ${client.guilds.cache.size} servers`,
 			`with ${client.users.cache.size} users`,
@@ -9,7 +11,7 @@ export default {
 		];
     
 		let activity = activityList[Math.floor(Math.random() * activityList.length)];
-		client.user.setActivity(activity, {
+		client.user!.setActivity(activity, {
 			name: activity,
 			type: 1
 		});
