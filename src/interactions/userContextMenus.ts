@@ -1,7 +1,7 @@
 import { Client, UserContextMenuCommandInteraction } from 'discord.js';
 import { ContextMenuCommandBuilder } from '@discordjs/builders';
 
-let commandID = 'test';
+const commandID = 'test';
 export default {
 	id: commandID,
 	type: 'contextMenu',

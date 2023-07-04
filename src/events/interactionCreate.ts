@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client, Interaction, MessageComponentInteraction, CommandInteraction } from 'discord.js';
 
 interface CustomInteraction {
@@ -26,7 +27,7 @@ export default {
 				if (interaction.isUserSelectMenu()) return 'userSelectMenu';
 			})();
 
-			let action = client.interaction.get(`${interactionType}-${interaction.customId || interaction.commandName}`) as CustomInteraction;
+			const action = client.interaction.get(`${interactionType}-${interaction.customId || interaction.commandName}`) as CustomInteraction;
 			if (!action) return;
 			try {
 				action.execute(client, interaction);
