@@ -1,19 +1,33 @@
-// eslint-disable-next-line no-undef
 module.exports = {
 	'env': {
-		'node': true,
-		'es6': true
+		'browser': true,
+		'es2021': true
 	},
-	'extends': 'eslint:recommended',
+	'extends': [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended'
+	],
 	'overrides': [
 		{
-			'files': ['src/**/*'],
+			'env': {
+				'node': true
+			},
+			'files': [
+				'.eslintrc.{js,cjs}'
+			],
+			'parserOptions': {
+				'sourceType': 'script'
+			}
 		}
 	],
+	'parser': '@typescript-eslint/parser',
 	'parserOptions': {
 		'ecmaVersion': 'latest',
 		'sourceType': 'module'
 	},
+	'plugins': [
+		'@typescript-eslint'
+	],
 	'rules': {
 		'indent': [
 			'error',
@@ -21,7 +35,7 @@ module.exports = {
 		],
 		'linebreak-style': [
 			'error',
-			'windows'
+			'unix'
 		],
 		'quotes': [
 			'error',
