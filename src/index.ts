@@ -27,9 +27,9 @@ await client.login(config.bot.token);
 client.interaction = new Discord.Collection();
 
 await loadEvents(client);
-await loadInteractions('./src/interactions', client);
+await loadInteractions('./dist/interactions', client);
 await registerApplicationCommands(client);
-await loadCronJobs('./src/cron', client);
+await loadCronJobs('./dist/cron', client);
 
 process.on('uncaughtException', function (err) {
 	console.error(err);

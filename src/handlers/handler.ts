@@ -1,20 +1,21 @@
 import fs from 'fs';
 import chalk from 'chalk';
+import { Client } from 'discord.js';
 
-async function loadInteractions(folderPath, client) {
+async function loadInteractions(folderPath: string, client: Client) {
 	try {
-		let files = fs.readdirSync(folderPath);
+		const files = fs.readdirSync(folderPath);
 
 		for (let i = 0; i < files.length; i++) {
-			let file = files[i];
-			let filePath = folderPath + '/' + file;
-			let stats = fs.statSync(filePath);
+			const file = files[i];
+			const filePath = folderPath + '/' + file;
+			const stats = fs.statSync(filePath);
 
 			if (stats.isDirectory()) {
 				await loadInteractions(filePath, client);
 			} else {
-				let interactionPath = '.' + filePath;
-				let interaction = await import(`../${interactionPath}?${Date.now()}`);
+				const interactionPath = '.' + filePath;
+				const interaction = await import(`../${interactionPath}?${Date.now()}`);
 
 				if (interaction.default.disabled === true) return;
 				if (interaction.default.type === 'messageCommand') {

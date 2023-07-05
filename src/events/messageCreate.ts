@@ -1,14 +1,23 @@
 import config from '../data/config.js';
+import { Client, Message } from 'discord.js';
+
+interface CustomCommand {
+	id: string;
+	type: string;
+	disabled: boolean;
+	aliases: string[];
+	execute(client: Client, message: Message, args: string[]): Promise<void>;
+}
 
 export default {
 	event: 'messageCreate',
-	async execute(client, message) {
+	async execute(client: Client, message: Message) {
 		try {
 			if (message.author.bot) return;
 
 			if (message.content.startsWith(config.bot.prefix)) {
 				const args = message.content.slice(config.bot.prefix.length).trim().split(/ +/);
-				const command = client.interaction.get(`messageCommand-${args[0]}`);
+				const command = client.interaction.get(`messageCommand-${args[0]}`) as CustomCommand;
 				if (!command) return;
 				try {
 					command.execute(client, message, args);

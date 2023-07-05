@@ -1,6 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Client, Interaction, MessageComponentInteraction, CommandInteraction } from 'discord.js';
+
+interface CustomInteraction {
+	id: string;
+	type: string;
+	disabled: boolean;
+	execute(client: Client, interaction: MessageComponentInteraction | Interaction | CommandInteraction | any): Promise<void>;
+}
+
 export default {
 	event: 'interactionCreate',
-	async execute(client, interaction) {
+	async execute(client: Client, interaction: MessageComponentInteraction | Interaction | CommandInteraction | any) {
 		try {
 
 			const interactionType = (() => {
@@ -17,7 +27,7 @@ export default {
 				if (interaction.isUserSelectMenu()) return 'userSelectMenu';
 			})();
 
-			let action = client.interaction.get(`${interactionType}-${interaction.customId || interaction.commandName}`);
+			const action = client.interaction.get(`${interactionType}-${interaction.customId || interaction.commandName}`) as CustomInteraction;
 			if (!action) return;
 			try {
 				action.execute(client, interaction);

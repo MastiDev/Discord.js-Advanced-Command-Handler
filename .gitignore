@@ -107,5 +107,5 @@ dist
 ###                  ###
 ### FOR THIS PROJECT ###
 ###                  ###
-src/data/config.js
+src/data/config.ts
 old

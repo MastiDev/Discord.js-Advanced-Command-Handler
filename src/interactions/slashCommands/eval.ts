@@ -1,8 +1,9 @@
 import { inspect } from 'util';
+import { Client, ChatInputCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import config from '../../data/config.js';
 
-let commandID = 'eval';
+const commandID = 'eval';
 export default {
 	id: commandID,
 	type: 'slashCommand',
@@ -11,11 +12,14 @@ export default {
 		.addStringOption(option => option.setName('input').setDescription('The input to echo back'))
 		.setName(commandID)
 		.setDescription('Evaluate code'),
-	async execute(client, interaction) {
+	async execute(client: Client, interaction: ChatInputCommandInteraction) {
 		try {
 			if(interaction.user.id !== config.bot.owner) return interaction.reply('You do not have permission to use this command.');
 			try {
-				const evaled = eval(interaction.options.getString('input'));
+				const input = interaction.options.getString('input');
+				if(!input) return interaction.reply('Please provide input to evaluate.');
+
+				const evaled = eval(input);
 				const cleaned = await clean(evaled);
 
 				interaction.reply(`\`\`\`js\n${cleaned}\n\`\`\``);
@@ -29,7 +33,7 @@ export default {
 	}
 };
 
-const clean = async (text) => {
+const clean = async (text: string) => {
 
 	if (text && text.constructor.name == 'Promise')
 		text = await text;

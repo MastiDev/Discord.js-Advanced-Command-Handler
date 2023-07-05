@@ -1,8 +1,9 @@
 import { readdirSync } from 'fs';
 import chalk from 'chalk';
+import { Client } from 'discord.js';
 
-async function loadEvents(client) {
-	const eventFiles = readdirSync('./src/events').filter(file => file.endsWith('.js'));
+async function loadEvents(client: Client) {
+	const eventFiles = readdirSync('./dist/events').filter(file => file.endsWith('.js'));
 	if (!eventFiles) return;
 	for (let i = 0; i < eventFiles.length; i++) {
 		const event = await import(`../events/${eventFiles[i]}`);
