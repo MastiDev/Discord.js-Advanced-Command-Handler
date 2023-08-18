@@ -1,4 +1,4 @@
-import Discord from 'discord.js';
+import { Client, GatewayIntentBits, Collection } from 'discord.js';
 import config from './data/config.js';
 
 import loadEvents from './handlers/events.js';
@@ -6,16 +6,22 @@ import loadInteractions from './handlers/handler.js';
 import registerApplicationCommands from './handlers/application.js';
 import { loadCronJobs } from './handlers/cronjobs.js';
 
-const client = new Discord.Client({
+declare module 'discord.js' {
+	interface Client {
+		interaction: Collection<string, object>; // Passende Typen hier einsetzen
+	}
+}
+
+const client = new Client({
 	intents: [
-		Discord.GatewayIntentBits.MessageContent,
-		Discord.GatewayIntentBits.Guilds,
-		Discord.GatewayIntentBits.GuildMessages,
-		Discord.GatewayIntentBits.GuildMembers,
-		Discord.GatewayIntentBits.GuildIntegrations,
-		Discord.GatewayIntentBits.GuildPresences,
-		Discord.GatewayIntentBits.GuildMessageTyping,
-		Discord.GatewayIntentBits.DirectMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildIntegrations,
+		GatewayIntentBits.GuildPresences,
+		GatewayIntentBits.GuildMessageTyping,
+		GatewayIntentBits.DirectMessages,
 	],
 	allowedMentions: { 
 		repliedUser: false // This will allow the bot to ping the user who used the command
@@ -24,7 +30,7 @@ const client = new Discord.Client({
 
 await client.login(config.bot.token);
 
-client.interaction = new Discord.Collection();
+client.interaction = new Collection();
 
 await loadEvents(client);
 await loadInteractions('./dist/interactions', client);
