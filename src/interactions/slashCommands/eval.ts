@@ -22,9 +22,9 @@ export default {
 				const evaled = eval(input);
 				const cleaned = await clean(evaled);
 
-				interaction.reply(`\`\`\`js\n${cleaned}\n\`\`\``);
+				await interaction.reply(`\`\`\`js\n${cleaned}\n\`\`\``);
 			} catch (error) {
-				interaction.reply(`\`ERROR\` \`\`\`xl\n${error}\n\`\`\``);
+				await interaction.reply(`\`ERROR\` \`\`\`xl\n${error}\n\`\`\``);
 			}
 
 		} catch (error) {

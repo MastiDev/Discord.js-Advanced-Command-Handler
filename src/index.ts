@@ -8,7 +8,7 @@ import { loadCronJobs } from './handlers/cronjobs.js';
 
 declare module 'discord.js' {
 	interface Client {
-		interaction: Collection<string, object>; // Passende Typen hier einsetzen
+		interaction: Collection<string, object>;
 	}
 }
 

@@ -5,6 +5,6 @@ export default {
 	type: 'mentionableSelectMenu',
 	disabled: false,
 	async execute(client: Client, interaction: MentionableSelectMenuInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

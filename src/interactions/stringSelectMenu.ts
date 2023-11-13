@@ -5,6 +5,6 @@ export default {
 	type: 'stringSelectMenu',
 	disabled: false,
 	async execute(client: Client, interaction: StringSelectMenuInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

@@ -10,6 +10,6 @@ export default {
 		.setName('test')
 		.setType(2),
 	async execute(client: Client, interaction: UserContextMenuCommandInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

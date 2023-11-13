@@ -10,6 +10,6 @@ export default {
 		.setName(commandID)
 		.setDescription('Ping!'),
 	async execute(client: Client, interaction: ChatInputCommandInteraction) {
-		interaction.reply('Pong!');
+		await interaction.reply('Pong!');
 	}
 };

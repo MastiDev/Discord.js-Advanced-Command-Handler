@@ -5,6 +5,6 @@ export default {
 	type: 'channelSelectMenu',
 	disabled: false,
 	async execute(client: Client, interaction: ChannelSelectMenuInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

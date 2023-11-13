@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Client, Interaction, MessageComponentInteraction, CommandInteraction } from 'discord.js';
+import {Client, Interaction, MessageComponentInteraction, CommandInteraction, BaseInteraction} from 'discord.js';
 
 interface CustomInteraction {
 	id: string;
 	type: string;
 	disabled: boolean;
-	execute(client: Client, interaction: MessageComponentInteraction | Interaction | CommandInteraction | any): Promise<void>;
+	execute(client: Client, interaction: BaseInteraction | MessageComponentInteraction | Interaction | CommandInteraction | any): Promise<void>;
 }
 
 export default {
 	event: 'interactionCreate',
-	async execute(client: Client, interaction: MessageComponentInteraction | Interaction | CommandInteraction | any) {
+	async execute(client: Client, interaction: BaseInteraction | MessageComponentInteraction | Interaction | CommandInteraction | any) {
 		try {
 
 			const interactionType = (() => {

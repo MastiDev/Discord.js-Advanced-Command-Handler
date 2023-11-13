@@ -5,6 +5,6 @@ export default {
 	type: 'roleSelectMenu',
 	disabled: false,
 	async execute(client: Client, interaction: RoleSelectMenuInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

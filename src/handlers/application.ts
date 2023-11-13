@@ -11,7 +11,7 @@ async function registerApplicationCommands(client: Client) {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const commands = new Map<string, any>();
 		for (const [key, value] of client.interaction) {
-			if (typeof key === 'string' && (key.startsWith('slashCommand-') || key.startsWith('contextMenu-'))) {
+			if (key.startsWith('slashCommand-') || key.startsWith('contextMenu-')) {
 				commands.set(key, value);
 			}
 		}

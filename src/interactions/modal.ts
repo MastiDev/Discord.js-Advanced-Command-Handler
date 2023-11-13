@@ -5,6 +5,6 @@ export default {
 	type: 'modal',
 	disabled: false,
 	async execute(client: Client, interaction: ModalSubmitInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

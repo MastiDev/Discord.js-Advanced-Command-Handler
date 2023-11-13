@@ -1,6 +1,6 @@
 {
   "name": "discord.js-advanced-command-handler",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "🤖 Discord.js V14 Command and Event Handler",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler.git"
+    "url": "git+https://github.com/MastiDev/Discord.js-Advanced-Command-Handler.git"
   },
   "author": "Masti#5516",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler/issues"
+    "url": "https://github.com/MastiDev/Discord.js-Advanced-Command-Handler/issues"
   },
-  "homepage": "https://github.com/MastiderMast/Discord.js-Advanced-Command-Handler#readme",
+  "homepage": "https://github.com/MastiDev/Discord.js-Advanced-Command-Handler#readme",
   "devDependencies": {
     "@types/node": "^20.3.3",
     "@types/node-cron": "^3.0.8",
@@ -29,8 +29,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "chalk": "^5.1.2",
-    "discord.js": "^14.13.0",
-    "node-cron": "^3.0.2"
+    "chalk": "^5.3.0",
+    "discord.js": "^14.14.1",
+    "node-cron": "^3.0.3"
   }
 }

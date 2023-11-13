@@ -20,9 +20,9 @@ export default {
 				const command = client.interaction.get(`messageCommand-${args[0]}`) as CustomCommand;
 				if (!command) return;
 				try {
-					command.execute(client, message, args);
+					await command.execute(client, message, args);
 				} catch (error) {
-					message.reply('There was an error trying to execute that command!');
+					await message.reply('There was an error trying to execute that command!');
 					console.log(error);
 				}
 			}

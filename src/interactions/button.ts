@@ -5,6 +5,6 @@ export default {
 	type: 'button',
 	disabled: false,
 	async execute(client: Client, interaction: ButtonInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };

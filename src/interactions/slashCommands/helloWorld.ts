@@ -10,6 +10,6 @@ export default {
 		.setName(commandID)
 		.setDescription('Replies with Hello World!'),
 	async execute(client: Client, interaction: ChatInputCommandInteraction) {
-		interaction.reply('Hello World!');
+		await interaction.reply('Hello World!');
 	}
 };
