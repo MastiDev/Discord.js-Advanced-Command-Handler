@@ -3,7 +3,7 @@ import { Client, ChatInputCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder, EmbedBuilder } from '@discordjs/builders';
 import chalk from 'chalk';
 
-import loadInteractions from '../../handlers/handler.js';
+import loadInteractions from '../../handlers/Interactions.js';
 import registerApplicationCommands from '../../handlers/application.js';
 
 const commandID = 'reload';
@@ -13,7 +13,7 @@ export default {
 	disabled: false,
 	data: new SlashCommandBuilder()
 		.setName(commandID)
-		.setDescription('Reloads all commands'),
+		.setDescription('Reloads all interactions'),
 	async execute(client: Client, interaction: ChatInputCommandInteraction) {
 		if (interaction.user.id !== config.bot.owner) return interaction.reply('You do not have the permission to use this command!');
 

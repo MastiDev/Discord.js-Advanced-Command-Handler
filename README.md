@@ -2,8 +2,8 @@
 Simple and easy to use Slash Command Handler for Discord.js v14.
 
 ## Prerequisites
-- Node.js v18.17.1 or newer is recommended. Older versions might work. You can download it [here](https://nodejs.org/en/download/).
-- Typescript v5.2.2 or newer is recommended. Older versions might work. You can download it [here](https://www.typescriptlang.org/download).
+- Node.js v22.14.0 or newer is recommended. Older versions might work. You can download it [here](https://nodejs.org/en/download/).
+- Typescript v5.8.2 or newer is recommended. Older versions might work. You can download it [here](https://www.typescriptlang.org/download).
 
 ## Installation
 1. Fill out the `config.ts.TEMPLATE` located in the `src/data` folder.

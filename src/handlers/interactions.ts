@@ -18,6 +18,8 @@ async function loadInteractions(folderPath: string, client: Client) {
 				const interaction = await import(`../${interactionPath}?${Date.now()}`);
 
 				if (interaction.default.disabled === true) return;
+
+				// Legacy message commands needs the message content intent to work
 				if (interaction.default.type === 'messageCommand') {
 					client.interaction.set(`messageCommand-${interaction.default.id}`, interaction.default);
 					console.log(chalk.greenBright(`[${interaction.default.type.toUpperCase()}] Successfully Loaded ${(chalk.yellow(file))} ${(chalk.yellow(interaction.default.id))}`));
